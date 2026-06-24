@@ -1,0 +1,21 @@
+@import "tailwindcss";
+
+@theme {
+  /* Di sini tempat kita daftarin warna atau font khusus kalau mau custom nanti */
+}
+
+/* Custom CSS tambahan buat animasi dan scroller */
+.scroller::-webkit-scrollbar {
+  display: none;
+}
+.scroller {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.card-container {
+  perspective: 1200px;
+}
+.tilt-card {
+  transform-style: preserve-3d;
+  transition: transform 0.15s ease-out, box-shadow 0.2s ease;
+}

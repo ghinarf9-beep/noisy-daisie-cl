@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="id" style="scroll-behavior: smooth;">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Team - NoisyDaisieChampionLeague</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+        /* Paksa scrollbar vertikal selalu muncul biar layout sama rata */
+        html {
+            overflow-y: scroll;
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-white font-sans overflow-x-hidden selection:bg-pink-500">
+
+    <nav class="bg-slate-900/80 backdrop-blur-md sticky top-0 z-50 border-b border-slate-800">
+        <div class="max-w-full mx-auto px-6 lg:px-12 h-20 flex items-center justify-between">
+            <div class="text-xl font-black tracking-wider bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent">
+                NOISYDAISIE CL
+            </div>
+            
+            <div class="hidden md:flex space-x-8 font-medium items-center">
+                <a href="/index.html" class="hover:text-pink-500 transition">Home</a>
+                <a href="/matches.html" class="hover:text-pink-500 transition">Matches</a>
+                <a href="/teams.html" class="hover:text-pink-500 transition">Teams</a>
+                <a href="/schedule.html" class="hover:text-pink-500 transition">Schedule</a>
+                
+                <a href="/register.html" class="bg-gradient-to-r from-pink-500 to-purple-500 text-white font-bold px-5 py-2.5 rounded-xl shadow-[0_0_20px_rgba(236,72,153,0.4)] scale-105">
+                    Join League
+                </a>
+            </div>
+
+            <button id="burger-btn" class="md:hidden block focus:outline-none cursor-pointer">
+                <svg class="w-8 h-8 text-white hover:text-pink-500 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            </button>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-4 py-16 flex flex-col items-center">
+        <div class="text-center mb-10">
+            <h1 class="text-4xl md:text-5xl font-black uppercase tracking-tight bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 bg-clip-text text-transparent">
+                TEAM REGISTRATION
+            </h1>
+            <p class="text-slate-400 mt-2 text-sm md:text-base">Daftarkan klub rintisanmu dan jadilah juara di liga musim ini!</p>
+        </div>
+
+        <div class="w-full max-w-2xl bg-slate-900 border border-slate-800 rounded-3xl p-8 md:p-10 shadow-2xl relative overflow-hidden">
+            <div class="absolute -top-10 -right-10 w-40 h-40 bg-pink-500/10 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute -bottom-10 -left-10 w-40 h-40 bg-purple-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+            <form action="#" method="POST" class="space-y-6 relative z-10">
+                
+                <div>
+                    <label for="team-name" class="block text-sm font-semibold text-slate-300 mb-2">Nama Tim / Klub</label>
+                    <input type="text" id="team-name" name="team-name" required placeholder="Contoh: NoisyDaisie FC"
+                        class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3.5 text-white placeholder-slate-600 focus:outline-none focus:border-pink-500 focus:ring-1 focus:ring-pink-500 transition duration-200">
+                </div>
+
+                <div>
+                    <label for="manager-name" class="block text-sm font-semibold text-slate-300 mb-2">Nama Perwakilan</label>
+                    <input type="text" id="manager-name" name="manager-name" required placeholder="Nama lengkap kamu"
+                        class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3.5 text-white placeholder-slate-600 focus:outline-none focus:border-pink-500 focus:ring-1 focus:ring-pink-500 transition duration-200">
+                </div>
+
+                <div>
+                    <label for="jersey-number" class="block text-sm font-semibold text-slate-300 mb-2">Nomor Punggung Pemain</label>
+                    <input type="number" id="jersey-number" name="jersey-number" min="1" max="99" required placeholder="Contoh: 10"
+                        class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3.5 text-white placeholder-slate-600 focus:outline-none focus:border-pink-500 focus:ring-1 focus:ring-pink-500 transition duration-200">
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div>
+                        <label for="email" class="block text-sm font-semibold text-slate-300 mb-2">Alamat Email</label>
+                        <input type="email" id="email" name="email" required placeholder="nama@email.com"
+                            class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3.5 text-white placeholder-slate-600 focus:outline-none focus:border-pink-500 focus:ring-1 focus:ring-pink-500 transition duration-200">
+                    </div>
+                    <div>
+                        <label for="whatsapp" class="block text-sm font-semibold text-slate-300 mb-2">Nomor WhatsApp</label>
+                        <input type="tel" id="whatsapp" name="whatsapp" required placeholder="08xxxxxxxxxx"
+                            class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3.5 text-white placeholder-slate-600 focus:outline-none focus:border-pink-500 focus:ring-1 focus:ring-pink-500 transition duration-200">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-semibold text-slate-300 mb-2">Upload Logo Tim (PNG / JPG)</label>
+                    <div class="w-full bg-slate-950 border-2 border-dashed border-slate-800 rounded-xl p-6 text-center hover:border-purple-500/50 transition duration-200 group cursor-pointer relative">
+                        <input type="file" id="team-logo" name="team-logo" accept="image/*" required class="absolute inset-0 w-full h-full opacity-0 cursor-pointer">
+                        <svg class="w-10 h-10 text-slate-500 group-hover:text-purple-400 mx-auto mb-2 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                        </svg>
+                        <p class="text-sm text-slate-400 group-hover:text-slate-300 transition">Klik atau seret file gambar ke sini</p>
+                        <span class="text-xs text-slate-600">Maksimal ukuran file 2MB</span>
+                    </div>
+                </div>
+
+                <div class="pt-4">
+                    <button type="submit" 
+                        class="w-full bg-gradient-to-r from-pink-500 to-purple-500 hover:from-pink-600 hover:to-purple-600 text-white font-bold py-4 rounded-xl transition duration-300 shadow-[0_0_20px_rgba(236,72,153,0.15)] hover:shadow-[0_0_30px_rgba(236,72,153,0.4)] transform hover:-translate-y-0.5 cursor-pointer">
+                        Kirim Pendaftaran
+                    </button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <script>
+        const form = document.querySelector('form');
+        
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const teamName = document.getElementById('team-name').value;
+            const managerName = document.getElementById('manager-name').value;
+            const email = document.getElementById('email').value;
+            const whatsapp = document.getElementById('whatsapp').value;
+            const jerseyNumber = document.getElementById('jersey-number').value;
+            
+            const newTeamData = {
+                name: teamName,
+                manager: managerName,
+                email: email,
+                whatsapp: whatsapp,
+                jersey: jerseyNumber,
+                logoUrl: 'https://images.unsplash.com/photo-1518063319789-7217e6706b04?w=150&auto=format&fit=crop&q=80'
+            };
+            
+            let existingTeams = JSON.parse(localStorage.getItem('registeredTeams')) || [];
+            existingTeams.push(newTeamData);
+            localStorage.setItem('registeredTeams', JSON.stringify(existingTeams));
+            
+            alert('Selamat! Tim ' + teamName + ' berhasil didaftarkan secara lokal.');
+            form.reset();
+            window.location.href = '/index.html';
+        });
+    </script>
+
+    <script type="module" src="/src/main.js"></script>
+</body>
+</html>

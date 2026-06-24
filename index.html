@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="id" style="scroll-behavior: smooth;">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - NoisyDaisieChampionLeague</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+        /* Paksa scrollbar vertikal selalu muncul biar layout sama rata */
+        html {
+            overflow-y: scroll;
+        }
+        /* Sembunyikan scrollbar horizontal untuk card slider */
+        .scroller::-webkit-scrollbar { display: none; }
+        .scroller { -ms-overflow-style: none; scrollbar-width: none; }
+        /* 3D Tilt Card */
+        .card-container { perspective: 1200px; }
+        .tilt-card { transform-style: preserve-3d; transition: transform 0.15s ease-out, box-shadow 0.2s ease; }
+    </style>
+</head>
+<body class="bg-slate-950 text-white font-sans overflow-x-hidden selection:bg-pink-500">
+
+    <nav class="bg-slate-900/80 backdrop-blur-md sticky top-0 z-50 border-b border-slate-800">
+        <div class="max-w-full mx-auto px-6 lg:px-12 h-20 flex items-center justify-between">
+            <div class="text-xl font-black tracking-wider bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent">
+                NOISYDAISIE CL
+            </div>
+            
+            <div class="hidden md:flex items-center space-x-8 font-medium">
+                <a href="/index.html" class="hover:text-pink-500 transition">Home</a>
+                <a href="/matches.html" class="hover:text-pink-500 transition">Matches</a>
+                <a href="/teams.html" class="hover:text-pink-500 transition">Teams</a>
+                <a href="/schedule.html" class="hover:text-pink-500 transition">Schedule</a>
+                
+                <a href="/register.html" class="bg-gradient-to-r from-pink-500 to-purple-500 hover:from-pink-600 hover:to-purple-600 text-white font-bold px-5 py-2.5 rounded-xl transition duration-300 shadow-[0_0_15px_rgba(236,72,153,0.15)] hover:shadow-[0_0_25px_rgba(236,72,153,0.45)] hover:scale-105 transform">
+                    Join League
+                </a>
+            </div>
+
+            <button id="burger-btn" class="md:hidden block focus:outline-none cursor-pointer">
+                <svg class="w-8 h-8 text-white hover:text-pink-500 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+
+        <div id="mobile-menu" class="hidden absolute top-20 left-0 w-full bg-slate-900 p-6 flex flex-col space-y-4 shadow-2xl md:hidden border-t border-slate-800 z-50">
+            <a href="/index.html" class="hover:text-pink-500 transition">Home</a>
+            <a href="/matches.html" class="hover:text-pink-500 transition">Matches</a>
+            <a href="/teams.html" class="hover:text-pink-500 transition">Teams</a>
+            <a href="/schedule.html" class="hover:text-pink-500 transition">Schedule</a>
+            <a href="/register.html" class="bg-gradient-to-r from-pink-500 to-purple-500 text-white font-bold py-3 rounded-xl text-center shadow-[0_0_15px_rgba(236,72,153,0.2)]">
+                Join League
+            </a>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-4 py-16">
+        <div class="text-center mb-16">
+            <h1 class="text-4xl md:text-6xl font-black uppercase tracking-tight bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 bg-clip-text text-transparent">
+                STARTING LINE-UP
+            </h1>
+            <p class="text-slate-400 mt-3 text-sm md:text-base">Geser ke samping untuk melihat pemain, klik untuk detail profil.</p>
+        </div>
+
+        <div id="players-scroller" class="scroller flex space-x-6 overflow-x-auto pb-10 px-4 snap-x card-container">
+            <div class="tilt-card min-w-[280px] md:min-w-[320px] bg-slate-900 rounded-2xl overflow-hidden border border-slate-800 snap-center cursor-pointer relative group" 
+                 data-name="Vinícius Júnior" data-number="7" data-pos="Left Winger" data-stat1="3.080 Menit" data-stat2="39 Kali" data-stat3="72 kg / 1.76 m" data-img="https://images.unsplash.com/photo-1624880351068-80ac04dd45c3?w=500&auto=format&fit=crop&q=80">
+                <div class="h-[420px] bg-gradient-to-b from-amber-500/10 via-slate-900 to-slate-950 p-6 flex flex-col justify-end relative overflow-hidden">
+                    <div class="absolute top-4 right-6 text-7xl font-black text-slate-800/20 group-hover:text-amber-500/20 transition-colors duration-300">7</div>
+                    <div class="z-20 relative">
+                        <span class="text-xs font-bold uppercase tracking-widest text-amber-500">Real Madrid</span>
+                        <h3 class="text-2xl font-black mt-1 group-hover:text-amber-400 transition-colors">Vinícius Jr</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="tilt-card min-w-[280px] md:min-w-[320px] bg-slate-900 rounded-2xl overflow-hidden border border-slate-800 snap-center cursor-pointer relative group" 
+                 data-name="Lamine Yamal" data-number="19" data-pos="Right Winger" data-stat1="2.890 Menit" data-stat2="44 Kali" data-stat3="66 kg / 1.78 m" data-img="https://images.unsplash.com/photo-1508098682722-e99c43a406b2?w=500&auto=format&fit=crop&q=80">
+                <div class="h-[420px] bg-gradient-to-b from-blue-500/10 via-slate-900 to-slate-950 p-6 flex flex-col justify-end relative overflow-hidden">
+                    <div class="absolute top-4 right-6 text-7xl font-black text-slate-800/20 group-hover:text-blue-500/20 transition-colors duration-300">19</div>
+                    <div class="z-20 relative">
+                        <span class="text-xs font-bold uppercase tracking-widest text-blue-400">FC Barcelona</span>
+                        <h3 class="text-2xl font-black mt-1 group-hover:text-blue-400 transition-colors">Lamine Yamal</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const scroller = document.getElementById('players-scroller');
+            const localTeams = JSON.parse(localStorage.getItem('registeredTeams')) || [];
+            
+            localTeams.forEach(function(team) {
+                const playerCard = document.createElement('div');
+                playerCard.className = "tilt-card min-w-[280px] md:min-w-[320px] bg-slate-900 rounded-2xl overflow-hidden border border-pink-500/30 snap-center cursor-pointer relative group";
+                
+                // Menggunakan nomor jersey dari database lokal (jika tidak ada, fallback ke 99)
+                const nomorPunggung = team.jersey || '99';
+
+                playerCard.innerHTML = `
+                    <div class="h-[420px] bg-gradient-to-b from-pink-500/10 via-slate-900 to-slate-950 p-6 flex flex-col justify-end relative overflow-hidden">
+                        <div class="absolute top-4 right-6 text-7xl font-black text-slate-800/10 group-hover:text-pink-500/20 transition-colors duration-300">${nomorPunggung}</div>
+                        <div class="z-20 relative">
+                            <span class="text-xs font-bold uppercase tracking-widest text-pink-500">${team.name}</span>
+                            <h3 class="text-2xl font-black mt-1 group-hover:text-pink-400 transition-colors">${team.manager}</h3>
+                        </div>
+                    </div>
+                `;
+                
+                // LIVE ACTION: Pasang event listener gerak (Tilt Effect) khusus untuk kartu baru ini
+                playerCard.addEventListener('mousemove', function(e) {
+                    const cardRect = playerCard.getBoundingClientRect();
+                    const cardX = e.clientX - cardRect.left - cardRect.width / 2;
+                    const cardY = e.clientY - cardRect.top - cardRect.height / 2;
+                    
+                    // Hitung sudut kemiringan (maksimal 15 derajat)
+                    const rotateX = -(cardY / (cardRect.height / 2)) * 15;
+                    const rotateY = (cardX / (cardRect.width / 2)) * 15;
+                    
+                    playerCard.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
+                    playerCard.style.boxShadow = `0px 20px 30px rgba(236, 72, 153, 0.2)`;
+                });
+                
+                // Kembalikan ke posisi semula saat kursor keluar dari kartu
+                playerCard.addEventListener('mouseleave', function() {
+                    playerCard.style.transform = `rotateX(0deg) rotateY(0deg) scale(1)`;
+                    playerCard.style.boxShadow = `none`;
+                });
+
+                scroller.appendChild(playerCard);
+            });
+        });
+    </script>
+
+    <script type="module" src="/src/main.js"></script>
+</body>
+</html>
