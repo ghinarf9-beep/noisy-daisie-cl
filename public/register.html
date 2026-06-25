@@ -131,7 +131,7 @@
             existingTeams.push(newTeamData);
             localStorage.setItem('registeredTeams', JSON.stringify(existingTeams));
             
-            alert('Selamat! Tim ' + teamName + ' berhasil didaftarkan secara lokal.');
+            alert(`Selamat! Tim ${namaTim} berhasil didaftarkan.`);
             form.reset();
             window.location.href = '/index.html';
         });
