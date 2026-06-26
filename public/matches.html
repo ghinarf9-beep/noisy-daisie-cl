@@ -21,12 +21,12 @@
             </div>
             
             <div class="hidden md:flex items-center space-x-8 font-medium">
-                <a href="/index.html" class="hover:text-pink-500 transition">Home</a>
-                <a href="/matches.html" class="hover:text-pink-500 transition">Matches</a>
-                <a href="/teams.html" class="hover:text-pink-500 transition">Teams</a>
-                <a href="/schedule.html" class="hover:text-pink-500 transition">Schedule</a>
+                <a href="index.html" class="hover:text-pink-500 transition">Home</a>
+                <a href="matches.html" class="hover:text-pink-500 transition">Matches</a>
+                <a href="teams.html" class="hover:text-pink-500 transition">Teams</a>
+                <a href="schedule.html" class="hover:text-pink-500 transition">Schedule</a>
                 
-                <a href="/register.html" class="bg-gradient-to-r from-pink-500 to-purple-500 hover:from-pink-600 hover:to-purple-600 text-white font-bold px-5 py-2.5 rounded-xl transition duration-300 shadow-[0_0_15px_rgba(236,72,153,0.15)] hover:shadow-[0_0_25px_rgba(236,72,153,0.45)] hover:scale-105 transform">
+                <a href="register.html" class="bg-gradient-to-r from-pink-500 to-purple-500 hover:from-pink-600 hover:to-purple-600 text-white font-bold px-5 py-2.5 rounded-xl transition duration-300 shadow-[0_0_15px_rgba(236,72,153,0.15)] hover:shadow-[0_0_25px_rgba(236,72,153,0.45)] hover:scale-105 transform">
                     Join League
                 </a>
             </div>
@@ -39,11 +39,11 @@
         </div>
 
         <div id="mobile-menu" class="hidden absolute top-20 left-0 w-full bg-slate-900 p-6 flex flex-col space-y-4 shadow-2xl md:hidden border-t border-slate-800 z-50">
-            <a href="/index.html" class="hover:text-pink-500 transition">Home</a>
-            <a href="/matches.html" class="hover:text-pink-500 transition">Matches</a>
-            <a href="/teams.html" class="hover:text-pink-500 transition">Teams</a>
-            <a href="/schedule.html" class="hover:text-pink-500 transition">Schedule</a>
-            <a href="/register.html" class="bg-gradient-to-r from-pink-500 to-purple-500 text-white font-bold py-3 rounded-xl text-center shadow-[0_0_15px_rgba(236,72,153,0.2)]">
+            <a href="index.html" class="hover:text-pink-500 transition">Home</a>
+            <a href="matches.html" class="hover:text-pink-500 transition">Matches</a>
+            <a href="teams.html" class="hover:text-pink-500 transition">Teams</a>
+            <a href="schedule.html" class="hover:text-pink-500 transition">Schedule</a>
+            <a href="register.html" class="bg-gradient-to-r from-pink-500 to-purple-500 text-white font-bold py-3 rounded-xl text-center shadow-[0_0_15px_rgba(236,72,153,0.2)]">
                 Join League
             </a>
         </div>
@@ -75,6 +75,7 @@
         </div>
     </main>
 
+    <!-- 1. Jalanin script pendaftaran tim dari localStorage -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const matchesList = document.getElementById('matches-list');
@@ -103,6 +104,19 @@
         });
     </script>
 
+    <!-- 2. Taruh Script Burger Menu di Sini (Biar dieksekusi duluan tanpa ke-block) -->
+    <script>
+      const burgerBtn = document.getElementById('burger-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+
+      if (burgerBtn && mobileMenu) {
+        burgerBtn.addEventListener('click', () => {
+          mobileMenu.classList.toggle('hidden');
+        });
+      }
+    </script>
+
+    <!-- 3. Baru panggil main.js di paling bawah -->
     <script type="module" src="/src/main.js"></script>
 </body>
 </html>

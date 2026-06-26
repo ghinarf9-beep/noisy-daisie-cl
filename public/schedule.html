@@ -21,29 +21,29 @@
             </div>
             
             <div class="hidden md:flex items-center space-x-8 font-medium">
-                <a href="/index.html" class="hover:text-pink-500 transition">Home</a>
-                <a href="/matches.html" class="hover:text-pink-500 transition">Matches</a>
-                <a href="/teams.html" class="hover:text-pink-500 transition">Teams</a>
-                <a href="/schedule.html" class="hover:text-pink-500 transition">Schedule</a>
+                <a href="index.html" class="hover:text-pink-500 transition">Home</a>
+                <a href="matches.html" class="hover:text-pink-500 transition">Matches</a>
+                <a href="teams.html" class="hover:text-pink-500 transition">Teams</a>
+                <a href="schedule.html" class="hover:text-pink-500 transition">Schedule</a>
                 
-                <a href="/register.html" class="bg-gradient-to-r from-pink-500 to-purple-500 hover:from-pink-600 hover:to-purple-600 text-white font-bold px-5 py-2.5 rounded-xl transition duration-300 shadow-[0_0_15px_rgba(236,72,153,0.15)] hover:shadow-[0_0_25px_rgba(236,72,153,0.45)] hover:scale-105 transform">
+                <a href="register.html" class="bg-gradient-to-r from-pink-500 to-purple-500 hover:from-pink-600 hover:to-purple-600 text-white font-bold px-5 py-2.5 rounded-xl transition duration-300 shadow-[0_0_15px_rgba(236,72,153,0.15)] hover:shadow-[0_0_25px_rgba(236,72,153,0.45)] hover:scale-105 transform">
                     Join League
                 </a>
             </div>
 
-        <button id="burger-btn" class="md:hidden block focus:outline-none cursor-pointer relative z-[60]">
-        <svg class="w-8 h-8 text-white hover:text-pink-500 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-        </svg>
-    </button>
+            <button id="burger-btn" class="md:hidden block focus:outline-none cursor-pointer relative z-[60]">
+                <svg class="w-8 h-8 text-white hover:text-pink-500 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
         </div>
 
         <div id="mobile-menu" class="hidden absolute top-20 left-0 w-full bg-slate-900 p-6 flex flex-col space-y-4 shadow-2xl md:hidden border-t border-slate-800 z-50">
-            <a href="/index.html" class="hover:text-pink-500 transition">Home</a>
-            <a href="/matches.html" class="hover:text-pink-500 transition">Matches</a>
-            <a href="/teams.html" class="hover:text-pink-500 transition">Teams</a>
-            <a href="/schedule.html" class="hover:text-pink-500 transition">Schedule</a>
-            <a href="/register.html" class="bg-gradient-to-r from-pink-500 to-purple-500 text-white font-bold py-3 rounded-xl text-center shadow-[0_0_15px_rgba(236,72,153,0.2)]">
+            <a href="index.html" class="hover:text-pink-500 transition">Home</a>
+            <a href="matches.html" class="hover:text-pink-500 transition">Matches</a>
+            <a href="teams.html" class="hover:text-pink-500 transition">Teams</a>
+            <a href="schedule.html" class="hover:text-pink-500 transition">Schedule</a>
+            <a href="register.html" class="bg-gradient-to-r from-pink-500 to-purple-500 text-white font-bold py-3 rounded-xl text-center shadow-[0_0_15px_rgba(236,72,153,0.2)]">
                 Join League
             </a>
         </div>
@@ -58,12 +58,13 @@
         </div>
 
         <div id="schedule-list" class="max-w-3xl mx-auto space-y-4 px-4">
-    <div id="no-schedule" class="bg-slate-900 border border-slate-800 rounded-2xl p-8 text-center text-slate-500">
-        Belum ada jadwal tanding resmi. Daftarkan tim kamu sekarang!
-    </div>
-</div>
+            <div id="no-schedule" class="bg-slate-900 border border-slate-800 rounded-2xl p-8 text-center text-slate-500">
+                Belum ada jadwal tanding resmi. Daftarkan tim kamu sekarang!
+            </div>
+        </div>
     </main>
 
+    <!-- SCRIPT TAMPILKAN JADWAL DARI LOCALSTORAGE -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const scheduleList = document.getElementById('schedule-list');
@@ -71,7 +72,7 @@
             const localTeams = JSON.parse(localStorage.getItem('registeredTeams')) || [];
             
             if (localTeams.length > 0 && noSchedule) {
-                noSchedule.remove(); // Hapus tulisan "Belum ada jadwal"
+                noSchedule.remove(); 
             }
             
             localTeams.forEach(function(team) {
@@ -92,6 +93,19 @@
         });
     </script>
 
+    <!-- KODE BURGER MENU -->
+    <script>
+      const burgerBtn = document.getElementById('burger-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+
+      if (burgerBtn && mobileMenu) {
+        burgerBtn.addEventListener('click', () => {
+          mobileMenu.classList.toggle('hidden');
+        });
+      }
+    </script>
+
+    <!-- MAIN.JS DI PALING BAWAH -->
     <script type="module" src="/src/main.js"></script>
 </body>
 </html>
