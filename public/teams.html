@@ -5,134 +5,113 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Teams - NoisyDaisieChampionLeague</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        /* Paksa scrollbar vertikal selalu muncul biar layout sama rata */
-        html {
-            overflow-y: scroll;
-        }
-    </style>
 </head>
 <body class="bg-slate-950 text-white font-sans overflow-x-hidden selection:bg-pink-500">
 
+    <!-- NAVBAR ASLI -->
     <nav class="bg-slate-900/80 backdrop-blur-md sticky top-0 z-50 border-b border-slate-800">
         <div class="max-w-full mx-auto px-6 lg:px-12 h-20 flex items-center justify-between">
-            <div class="text-xl font-black tracking-wider bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent">
-                NOISYDAISIE CL
-            </div>
-            
+            <div class="text-xl font-black tracking-wider bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent">NOISYDAISIE CL</div>
             <div class="hidden md:flex items-center space-x-8 font-medium">
                 <a href="index.html" class="hover:text-pink-500 transition">Home</a>
                 <a href="matches.html" class="hover:text-pink-500 transition">Matches</a>
                 <a href="teams.html" class="hover:text-pink-500 transition">Teams</a>
                 <a href="schedule.html" class="hover:text-pink-500 transition">Schedule</a>
-                
-                <a href="register.html" class="bg-gradient-to-r from-pink-500 to-purple-500 hover:from-pink-600 hover:to-purple-600 text-white font-bold px-5 py-2.5 rounded-xl transition duration-300 shadow-[0_0_15px_rgba(236,72,153,0.15)] hover:shadow-[0_0_25px_rgba(236,72,153,0.45)] hover:scale-105 transform">
-                    Join League
-                </a>
+                <a href="register.html" class="bg-gradient-to-r from-pink-500 to-purple-500 text-white font-bold px-5 py-2.5 rounded-xl transition">Join League</a>
             </div>
-
-        <button id="burger-btn" class="md:hidden block focus:outline-none cursor-pointer relative z-[60]">
-        <svg class="w-8 h-8 text-white hover:text-pink-500 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-        </svg>
-    </button>
-        </div>
-
-        <div id="mobile-menu" class="hidden absolute top-20 left-0 w-full bg-slate-900 p-6 flex flex-col space-y-4 shadow-2xl md:hidden border-t border-slate-800 z-50">
-            <a href="index.html" class="hover:text-pink-500 transition">Home</a>
-            <a href="matches.html" class="hover:text-pink-500 transition">Matches</a>
-            <a href="teams.html" class="hover:text-pink-500 transition">Teams</a>
-            <a href="schedule.html" class="hover:text-pink-500 transition">Schedule</a>
-            <a href="register.html" class="bg-gradient-to-r from-pink-500 to-purple-500 text-white font-bold py-3 rounded-xl text-center shadow-[0_0_15px_rgba(236,72,153,0.2)]">
-                Join League
-            </a>
         </div>
     </nav>
 
     <main class="max-w-7xl mx-auto px-4 py-16">
         <div class="text-center mb-16">
-            <h1 class="text-4xl md:text-6xl font-black uppercase tracking-tight bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 bg-clip-text text-transparent">
-                PARTICIPATING TEAMS
-            </h1>
-            <p class="text-slate-400 mt-3 text-sm md:text-base">Halaman khusus untuk daftar klub raksasa peserta liga.</p>
+            <h1 class="text-4xl md:text-6xl font-black uppercase tracking-tight bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 bg-clip-text text-transparent">PARTICIPATING TEAMS</h1>
+            <p class="text-slate-400 mt-3 text-sm md:text-base">Klik kartu tim untuk melihat detail squad nomor punggung pemain!</p>
         </div>
-
-        <div id="teams-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 px-4 max-w-7xl mx-auto">
-            <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 flex flex-col items-center text-center hover:border-amber-500/40 hover:shadow-[0_0_20px_rgba(245,158,11,0.15)] transition duration-300 group cursor-pointer">
-                <div class="w-20 h-20 bg-amber-500/10 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition duration-300">
-                    <span class="text-2xl font-black text-amber-500">RM</span>
-                </div>
-                <h3 class="text-xl font-bold text-white group-hover:text-amber-400 transition">Real Madrid</h3>
-                <p class="text-slate-400 text-sm mt-1">La Liga · Spanyol</p>
-                <span class="text-xs font-semibold bg-slate-950 px-3 py-1 rounded-full text-slate-500 mt-3 border border-slate-800">25 Players</span>
-            </div>
-            <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 flex flex-col items-center text-center hover:border-blue-500/40 hover:shadow-[0_0_20px_rgba(59,130,246,0.15)] transition duration-300 group cursor-pointer">
-                <div class="w-20 h-20 bg-blue-500/10 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition duration-300">
-                    <span class="text-2xl font-black text-blue-500">FCB</span>
-                </div>
-                <h3 class="text-xl font-bold text-white group-hover:text-blue-400 transition">FC Barcelona</h3>
-                <p class="text-slate-400 text-sm mt-1">La Liga · Spanyol</p>
-                <span class="text-xs font-semibold bg-slate-950 px-3 py-1 rounded-full text-slate-500 mt-3 border border-slate-800">24 Players</span>
-            </div>
-            <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 flex flex-col items-center text-center hover:border-cyan-500/40 hover:shadow-[0_0_20px_rgba(34,211,238,0.15)] transition duration-300 group cursor-pointer">
-                <div class="w-20 h-20 bg-cyan-500/10 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition duration-300">
-                    <span class="text-2xl font-black text-cyan-400">MC</span>
-                </div>
-                <h3 class="text-xl font-bold text-white group-hover:text-cyan-400 transition">Manchester City</h3>
-                <p class="text-slate-400 text-sm mt-1">Premier League · Inggris</p>
-                <span class="text-xs font-semibold bg-slate-950 px-3 py-1 rounded-full text-slate-500 mt-3 border border-slate-800">23 Players</span>
-            </div>
-            <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 flex flex-col items-center text-center hover:border-red-500/40 hover:shadow-[0_0_20px_rgba(239,68,68,0.15)] transition duration-300 group cursor-pointer">
-                <div class="w-20 h-20 bg-red-500/10 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition duration-300">
-                    <span class="text-2xl font-black text-red-500">FCB</span>
-                </div>
-                <h3 class="text-xl font-bold text-white group-hover:text-red-400 transition">Bayern Munich</h3>
-                <p class="text-slate-400 text-sm mt-1">Bundesliga · Jerman</p>
-                <span class="text-xs font-semibold bg-slate-950 px-3 py-1 rounded-full text-slate-500 mt-3 border border-slate-800">26 Players</span>
-            </div>
-        </div>
+        <div id="teams-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 px-4 max-w-7xl mx-auto"></div>
     </main>
 
-    <!-- SCRIPT TAMPILKAN TIM DARI LOCALSTORAGE -->
+    <!-- POPUP MODAL -->
+    <div id="player-modal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-md z-[100] hidden flex items-center justify-center p-4">
+        <div class="bg-slate-900 border border-slate-800 w-full max-w-lg rounded-2xl p-6 p-8 shadow-2xl relative">
+            <button id="close-modal" class="absolute top-4 right-4 text-slate-400 hover:text-white font-bold text-xl cursor-pointer">&times;</button>
+            <div class="flex items-center space-x-4 mb-6 border-b border-slate-800 pb-4">
+                <div id="modal-team-logo" class="w-14 h-14 rounded-full overflow-hidden bg-slate-950 flex items-center justify-center text-pink-500 font-bold uppercase border border-slate-800"></div>
+                <div>
+                    <h2 id="modal-team-name" class="text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-purple-500"></h2>
+                    <p id="modal-team-captain" class="text-sm text-slate-400"></p>
+                </div>
+            </div>
+            <h4 class="text-xs font-bold text-pink-400 tracking-wider uppercase mb-3">Daftar Skuad Pemain</h4>
+            <div id="modal-players-list" class="space-y-2 max-h-60 overflow-y-auto pr-2"></div>
+        </div>
+    </div>
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const teamsGrid = document.getElementById('teams-grid');
+            const modal = document.getElementById('player-modal');
+            const closeModal = document.getElementById('close-modal');
             
-            // Ambil data tim dari localStorage
+            const defaultTeams = [
+                { name: "Real Madrid", captain: "Carlo Ancelotti (Coach)", isDummy: true, initials: "RM", teamPhoto: null, players: [{ name: "Vinícius Jr", number: "7" }, { name: "Kylian Mbappé", number: "9" }] },
+                { name: "FC Barcelona", captain: "Hansi Flick (Coach)", isDummy: true, initials: "FCB", teamPhoto: null, players: [{ name: "Lamine Yamal", number: "19" }, { name: "Raphinha", number: "11" }] }
+            ];
+
             const localTeams = JSON.parse(localStorage.getItem('registeredTeams')) || [];
+            const allTeams = [...defaultTeams, ...localTeams];
             
-            // Looping dan cetak tiap tim baru ke dalam grid HTML
-            localTeams.forEach(function(team) {
+            allTeams.forEach(function(team) {
                 const teamCard = document.createElement('div');
-                teamCard.className = "bg-slate-900 border border-pink-500/30 rounded-2xl p-6 flex flex-col items-center text-center hover:border-pink-500 hover:shadow-[0_0_20px_rgba(236,72,153,0.15)] transition duration-300 group cursor-pointer animate-fade-in";
-                
+                teamCard.className = "bg-slate-900 border border-slate-800/80 rounded-2xl p-6 flex flex-col items-center text-center transition duration-300 group cursor-pointer hover:-translate-y-2 transform relative overflow-hidden min-h-[220px] justify-center";
+                if(!team.isDummy) teamCard.classList.add('hover:border-pink-500');
+
+                const words = team.name.split(' ');
+                const finalInitials = ((words[0] ? words[0][0] : '') + (words[1] ? words[1][0] : '')).toUpperCase() || 'FC';
+
+                // Tambahkan background foto tim di halaman list teams juga
+                let bgPhotoHTML = '';
+                if (team.teamPhoto) {
+                    bgPhotoHTML = `<img src="${team.teamPhoto}" class="absolute inset-0 w-full h-full object-cover opacity-10 group-hover:opacity-20 transition-opacity duration-300 mix-blend-luminosity">`;
+                }
+
+                const totalPlayers = team.players ? team.players.length : 0;
+                const subText = team.isDummy ? "La Liga · Spanyol" : `Total: ${totalPlayers} Pemain`;
+
                 teamCard.innerHTML = `
-                    <div class="w-20 h-20 bg-pink-500/10 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition duration-300 overflow-hidden">
-                        <img src="${team.logoUrl}" alt="Logo" class="w-full h-full object-cover">
+                    ${bgPhotoHTML}
+                    <div class="w-16 h-16 bg-slate-950 rounded-full flex items-center justify-center mb-4 border border-slate-800 z-10 text-xl font-bold text-pink-500 uppercase">
+                        ${finalInitials}
                     </div>
-                    <h3 class="text-xl font-bold text-white group-hover:text-pink-400 transition">${team.name}</h3>
-                    <p class="text-slate-400 text-sm mt-1">Manager: ${team.manager}</p>
-                    <span class="text-xs font-semibold bg-pink-950 px-3 py-1 rounded-full text-pink-400 mt-3 border border-pink-800/50">New Registered Team</span>
+                    <h3 class="text-xl font-bold text-white group-hover:text-pink-400 transition mb-1 z-10">${team.name}</h3>
+                    <p class="text-slate-500 text-xs z-10">${subText}</p>
                 `;
                 
+                teamCard.addEventListener('click', function() {
+                    document.getElementById('modal-team-name').innerText = team.name;
+                    document.getElementById('modal-team-captain').innerText = team.isDummy ? team.captain : "Manager: " + team.captain;
+                    document.getElementById('modal-team-logo').innerHTML = `<span class="text-pink-500 font-bold">${finalInitials}</span>`;
+
+                    const listContainer = document.getElementById('modal-players-list');
+                    listContainer.innerHTML = '';
+
+                    if(team.players && team.players.length > 0) {
+                        team.players.forEach(p => {
+                            const row = document.createElement('div');
+                            row.className = "w-full flex items-center justify-between bg-slate-950/60 border border-slate-800 px-4 py-3 rounded-xl";
+                            row.innerHTML = `
+                                <span class="font-medium text-slate-200">${p.name}</span>
+                                <span class="bg-gradient-to-r from-pink-500 to-purple-500 text-white font-black text-xs px-2.5 py-1 rounded-md min-w-[35px] text-center block">${p.number}</span>
+                            `;
+                            listContainer.appendChild(row);
+                        });
+                    }
+                    modal.classList.remove('hidden');
+                });
                 teamsGrid.appendChild(teamCard);
             });
+
+            closeModal.addEventListener('click', () => modal.classList.add('hidden'));
         });
     </script>
-
-    <script>
-      // Ambil elemen tombol burger dan menu mobile
-      const burgerBtn = document.getElementById('burger-btn');
-      const mobileMenu = document.getElementById('mobile-menu');
-
-      // Pastikan elemennya ada baru jalankan fungsinya
-      if (burgerBtn && mobileMenu) {
-        burgerBtn.addEventListener('click', () => {
-          mobileMenu.classList.toggle('hidden');
-        });
-      }
-    </script>
-
-    <script type="module" src="/src/main.js"></script>
 </body>
 </html>

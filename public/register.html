@@ -6,14 +6,12 @@
     <title>Register Team - NoisyDaisieChampionLeague</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Paksa scrollbar vertikal selalu muncul biar layout sama rata */
-        html {
-            overflow-y: scroll;
-        }
+        html { overflow-y: scroll; }
     </style>
 </head>
 <body class="bg-slate-950 text-white font-sans overflow-x-hidden selection:bg-pink-500">
 
+    <!-- NAVBAR ASLI -->
     <nav class="bg-slate-900/80 backdrop-blur-md sticky top-0 z-50 border-b border-slate-800">
         <div class="max-w-full mx-auto px-6 lg:px-12 h-20 flex items-center justify-between">
             <div class="text-xl font-black tracking-wider bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent">
@@ -49,28 +47,37 @@
         </div>
     </nav>
 
+    <!-- FORM UTUH -->
     <main class="max-w-3xl mx-auto px-4 py-16">
         <div class="text-center mb-12">
             <h1 class="text-4xl md:text-5xl font-black uppercase tracking-tight bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 bg-clip-text text-transparent">
                 REGISTER YOUR CLUB
             </h1>
-            <p class="text-slate-400 mt-2 text-sm md:text-base">Daftarkan tim sepak bola terbaikmu dan ikut serta memperebutkan takhta juara!</p>
+            <p class="text-slate-400 mt-2 text-sm md:text-base">Upload foto skuad tim kamu dan daftarkan tim terbaikmu!</p>
         </div>
 
         <form id="register-form" class="bg-slate-900 border border-slate-800 rounded-3xl p-6 md:p-10 space-y-6 shadow-2xl">
             <div>
                 <label class="block text-sm font-semibold mb-2 text-slate-300">Nama Tim</label>
-                <input type="text" id="team-name" required placeholder="Contoh: Garuda FC" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3.5 focus:outline-none focus:border-pink-500 transition text-white">
+                <input type="text" id="team-name" required placeholder="Contoh: NoisyDaisie FC" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3.5 focus:outline-none focus:border-pink-500 transition text-white">
             </div>
 
             <div>
-                <label class="block text-sm font-semibold mb-2 text-slate-300">Nama Manager</label>
-                <input type="text" id="team-manager" required placeholder="Nama lengkap manager" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3.5 focus:outline-none focus:border-pink-500 transition text-white">
+                <label class="block text-sm font-semibold mb-2 text-slate-300">Nama Manager / Kontak WA</label>
+                <input type="text" id="team-captain" required placeholder="Contoh: Nara / 081234567xxx" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3.5 focus:outline-none focus:border-pink-500 transition text-white">
+            </div>
+
+            <!-- INPUT BARU: FILE FOTO TIM -->
+            <div>
+                <label class="block text-sm font-semibold mb-2 text-slate-300">Foto Bersama 1 Club (Optional)</label>
+                <input type="file" id="team-photo" accept="image/*" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 focus:outline-none focus:border-pink-500 transition text-white text-sm file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-semibold file:bg-pink-500 file:text-white hover:file:bg-pink-600 file:cursor-pointer">
+                <span class="block text-xs text-slate-500 mt-1">Foto ini bakal jadi latar belakang kartu tim di halaman utama.</span>
             </div>
 
             <div>
-                <label class="block text-sm font-semibold mb-2 text-slate-300">URL Logo Tim (Gambar Bebas)</label>
-                <input type="url" id="team-logo" required placeholder="https://example.com/logo.png" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3.5 focus:outline-none focus:border-pink-500 transition text-white">
+                <label class="block text-sm font-semibold mb-1 text-slate-300">Daftar Pemain & Nomor Punggung</label>
+                <span class="block text-xs text-slate-500 mb-2">Bisa pakai spasi atau strip (Contoh: Nara 9 ATAU Nara - 9). Satu pemain per baris.</span>
+                <textarea id="team-players" required rows="6" placeholder="nara 9&#10;onge 1&#10;patia 29" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3.5 focus:outline-none focus:border-pink-500 transition text-white font-mono"></textarea>
             </div>
 
             <button type="submit" class="w-full bg-gradient-to-r from-pink-500 to-purple-500 hover:from-pink-600 hover:to-purple-600 font-bold py-4 rounded-xl transition duration-300 transform hover:scale-[1.01] shadow-lg shadow-pink-500/20 text-center cursor-pointer">
@@ -79,44 +86,62 @@
         </form>
     </main>
 
-    <!-- KODE PROSES SUBMIT FORM REGISTER -->
     <script>
         document.getElementById('register-form').addEventListener('submit', function(e) {
             e.preventDefault();
             
             const name = document.getElementById('team-name').value;
-            const manager = document.getElementById('team-manager').value;
-            const logoUrl = document.getElementById('team-logo').value;
+            const captain = document.getElementById('team-captain').value;
+            const playersRaw = document.getElementById('team-players').value;
+            const photoFile = document.getElementById('team-photo').files[0];
             
-            const newTeam = { name, manager, logoUrl };
-            
-            // Ambil data yang lama atau buat array baru jika kosong
-            const localTeams = JSON.parse(localStorage.getItem('registeredTeams')) || [];
-            localTeams.push(newTeam);
-            
-            // Simpan kembali data yang baru ke localStorage
-            localStorage.setItem('registeredTeams', JSON.stringify(localTeams));
-            
-            alert('Selamat! Tim ' + name + ' berhasil terdaftar di liga.');
-            
-            // Redirect langsung ke halaman teams untuk melihat hasilnya
-            window.location.href = 'teams.html';
+            const playersArray = playersRaw.split('\n')
+                .map(line => {
+                    if (!line.trim()) return null;
+                    const match = line.match(/(.+?)\s*[- ]\s*(\d+)$/) || line.match(/(.+?)\s+(\d+)$/);
+                    if (match) {
+                        return { name: match[1].trim(), number: match[2].trim() };
+                    } else {
+                        return { name: line.trim(), number: '0' };
+                    }
+                }).filter(p => p !== null);
+
+            // Fungsi simpan data ke LocalStorage
+            function saveTeam(photoBase64 = null) {
+                const newTeam = { 
+                    name: name, 
+                    captain: captain, 
+                    players: playersArray, 
+                    teamPhoto: photoBase64
+                };
+                
+                const localTeams = JSON.parse(localStorage.getItem('registeredTeams')) || [];
+                localTeams.push(newTeam);
+                localStorage.setItem('registeredTeams', JSON.stringify(localTeams));
+                
+                alert('Selamat! Tim ' + name + ' berhasil terdaftar.');
+                window.location.href = 'index.html';
+            }
+
+            // Konversi file gambar ke teks base64 kalau ada gambarnya
+            if (photoFile) {
+                const reader = new FileReader();
+                reader.onloadend = function() {
+                    saveTeam(reader.result);
+                };
+                reader.readAsDataURL(photoFile);
+            } else {
+                saveTeam(null);
+            }
         });
     </script>
 
-    <!-- KODE BURGER MENU -->
     <script>
       const burgerBtn = document.getElementById('burger-btn');
       const mobileMenu = document.getElementById('mobile-menu');
-
       if (burgerBtn && mobileMenu) {
-        burgerBtn.addEventListener('click', () => {
-          mobileMenu.classList.toggle('hidden');
-        });
+        burgerBtn.addEventListener('click', () => { mobileMenu.classList.toggle('hidden'); });
       }
     </script>
-
-    <!-- MAIN.JS DI PALING BAWAH -->
-    <script type="module" src="/src/main.js"></script>
 </body>
 </html>
