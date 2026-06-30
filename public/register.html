@@ -1,20 +1,17 @@
 <!DOCTYPE html>
-<html lang="id" style="scroll-behavior: smooth;">
+<html lang="en" style="scroll-behavior: smooth; overflow-y: scroll;">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register Team - NoisyDaisieChampionLeague</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        html { overflow-y: scroll; }
-    </style>
 </head>
 <body class="bg-slate-950 text-white font-sans overflow-x-hidden selection:bg-pink-500">
 
-    <!-- NAVBAR ASLI -->
     <nav class="bg-slate-900/80 backdrop-blur-md sticky top-0 z-50 border-b border-slate-800">
-        <div class="max-w-full mx-auto px-6 lg:px-12 h-20 flex items-center justify-between">
-            <div class="text-xl font-black tracking-wider bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent">
+        <div class="max-w-full mx-auto px-4 sm:px-6 lg:px-12 h-20 flex items-center justify-between relative">
+            
+            <div class="text-lg sm:text-xl font-black tracking-wider bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent truncate max-w-[70%]">
                 NOISYDAISIE CL
             </div>
             
@@ -29,59 +26,57 @@
                 </a>
             </div>
 
-            <button id="burger-btn" class="md:hidden block focus:outline-none cursor-pointer relative z-[60]">
-                <svg class="w-8 h-8 text-white hover:text-pink-500 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            <button id="burger-btn" class="md:hidden block focus:outline-none cursor-pointer relative z-[60] p-2 min-w-[44px] min-h-[44px] flex items-center justify-center">
+                <svg class="w-7 h-7 text-white hover:text-pink-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 6h16M4 12h16M4 18h16"></path>
                 </svg>
             </button>
         </div>
 
         <div id="mobile-menu" class="hidden absolute top-20 left-0 w-full bg-slate-900 p-6 flex flex-col space-y-4 shadow-2xl md:hidden border-t border-slate-800 z-50">
-            <a href="index.html" class="hover:text-pink-500 transition">Home</a>
-            <a href="matches.html" class="hover:text-pink-500 transition">Matches</a>
-            <a href="teams.html" class="hover:text-pink-500 transition">Teams</a>
-            <a href="schedule.html" class="hover:text-pink-500 transition">Schedule</a>
-            <a href="register.html" class="bg-gradient-to-r from-pink-500 to-purple-500 text-white font-bold py-3 rounded-xl text-center shadow-[0_0_15px_rgba(236,72,153,0.2)]">
+            <a href="index.html" class="hover:text-pink-500 transition py-2 border-b border-slate-800/50">Home</a>
+            <a href="matches.html" class="hover:text-pink-500 transition py-2 border-b border-slate-800/50">Matches</a>
+            <a href="teams.html" class="hover:text-pink-500 transition py-2 border-b border-slate-800/50">Teams</a>
+            <a href="schedule.html" class="hover:text-pink-500 transition py-2 border-b border-slate-800/50">Schedule</a>
+            <a href="register.html" class="bg-gradient-to-r from-pink-500 to-purple-500 text-white font-bold py-3 rounded-xl text-center shadow-[0_0_15px_rgba(236,72,153,0.2)] block mt-4">
                 Join League
             </a>
         </div>
     </nav>
 
-    <!-- FORM UTUH -->
     <main class="max-w-3xl mx-auto px-4 py-16">
         <div class="text-center mb-12">
             <h1 class="text-4xl md:text-5xl font-black uppercase tracking-tight bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 bg-clip-text text-transparent">
                 REGISTER YOUR CLUB
             </h1>
-            <p class="text-slate-400 mt-2 text-sm md:text-base">Upload foto skuad tim kamu dan daftarkan tim terbaikmu!</p>
+            <p class="text-slate-400 mt-2 text-sm md:text-base">Upload your team squad photo and register your best club!</p>
         </div>
 
         <form id="register-form" class="bg-slate-900 border border-slate-800 rounded-3xl p-6 md:p-10 space-y-6 shadow-2xl">
             <div>
-                <label class="block text-sm font-semibold mb-2 text-slate-300">Nama Tim</label>
-                <input type="text" id="team-name" required placeholder="Contoh: NoisyDaisie FC" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3.5 focus:outline-none focus:border-pink-500 transition text-white">
+                <label class="block text-sm font-semibold mb-2 text-slate-300">Team Name</label>
+                <input type="text" id="team-name" required placeholder="Example: NoisyDaisie FC" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3.5 focus:outline-none focus:border-pink-500 transition text-white">
             </div>
 
             <div>
-                <label class="block text-sm font-semibold mb-2 text-slate-300">Nama Manager / Kontak WA</label>
-                <input type="text" id="team-captain" required placeholder="Contoh: Nara / 081234567xxx" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3.5 focus:outline-none focus:border-pink-500 transition text-white">
+                <label class="block text-sm font-semibold mb-2 text-slate-300">Manager Name / WhatsApp Contact</label>
+                <input type="text" id="team-captain" required placeholder="Example: Nara / 081234567xxx" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3.5 focus:outline-none focus:border-pink-500 transition text-white">
             </div>
 
-            <!-- INPUT BARU: FILE FOTO TIM -->
             <div>
-                <label class="block text-sm font-semibold mb-2 text-slate-300">Foto Bersama 1 Club (Optional)</label>
+                <label class="block text-sm font-semibold mb-2 text-slate-300">Club Team Photo (Optional)</label>
                 <input type="file" id="team-photo" accept="image/*" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 focus:outline-none focus:border-pink-500 transition text-white text-sm file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-semibold file:bg-pink-500 file:text-white hover:file:bg-pink-600 file:cursor-pointer">
-                <span class="block text-xs text-slate-500 mt-1">Foto ini bakal jadi latar belakang kartu tim di halaman utama.</span>
+                <span class="block text-xs text-slate-500 mt-1">This photo will be used as the background for your team card on the main page.</span>
             </div>
 
             <div>
-                <label class="block text-sm font-semibold mb-1 text-slate-300">Daftar Pemain & Nomor Punggung</label>
-                <span class="block text-xs text-slate-500 mb-2">Bisa pakai spasi atau strip (Contoh: Nara 9 ATAU Nara - 9). Satu pemain per baris.</span>
+                <label class="block text-sm font-semibold mb-1 text-slate-300">Player List & Squad Numbers</label>
+                <span class="block text-xs text-slate-500 mb-2">You can use spaces or dashes (Example: Nara 9 OR Nara - 9). One player per line.</span>
                 <textarea id="team-players" required rows="6" placeholder="nara 9&#10;onge 1&#10;patia 29" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3.5 focus:outline-none focus:border-pink-500 transition text-white font-mono"></textarea>
             </div>
 
             <button type="submit" class="w-full bg-gradient-to-r from-pink-500 to-purple-500 hover:from-pink-600 hover:to-purple-600 font-bold py-4 rounded-xl transition duration-300 transform hover:scale-[1.01] shadow-lg shadow-pink-500/20 text-center cursor-pointer">
-                Submit & Daftarkan Tim
+                Submit & Register Team
             </button>
         </form>
     </main>
@@ -106,7 +101,6 @@
                     }
                 }).filter(p => p !== null);
 
-            // Fungsi simpan data ke LocalStorage
             function saveTeam(photoBase64 = null) {
                 const newTeam = { 
                     name: name, 
@@ -119,11 +113,10 @@
                 localTeams.push(newTeam);
                 localStorage.setItem('registeredTeams', JSON.stringify(localTeams));
                 
-                alert('Selamat! Tim ' + name + ' berhasil terdaftar.');
+                alert('Congratulations! Team ' + name + ' has been successfully registered.');
                 window.location.href = 'index.html';
             }
 
-            // Konversi file gambar ke teks base64 kalau ada gambarnya
             if (photoFile) {
                 const reader = new FileReader();
                 reader.onloadend = function() {
@@ -137,11 +130,22 @@
     </script>
 
     <script>
-      const burgerBtn = document.getElementById('burger-btn');
-      const mobileMenu = document.getElementById('mobile-menu');
-      if (burgerBtn && mobileMenu) {
-        burgerBtn.addEventListener('click', () => { mobileMenu.classList.toggle('hidden'); });
-      }
+        document.addEventListener('DOMContentLoaded', function() {
+            const burgerBtn = document.getElementById('burger-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            if (burgerBtn && mobileMenu) {
+                burgerBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    mobileMenu.classList.toggle('hidden');
+                });
+                document.addEventListener('click', function(e) {
+                    if (!mobileMenu.classList.contains('hidden') && e.target !== burgerBtn && !burgerBtn.contains(e.target)) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                });
+            }
+        });
     </script>
 </body>
 </html>

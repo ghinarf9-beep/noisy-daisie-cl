@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="id" style="scroll-behavior: smooth;">
+<html lang="en" style="scroll-behavior: smooth; overflow-y: scroll;">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,31 +8,52 @@
 </head>
 <body class="bg-slate-950 text-white font-sans overflow-x-hidden selection:bg-pink-500">
 
-    <!-- NAVBAR ASLI -->
     <nav class="bg-slate-900/80 backdrop-blur-md sticky top-0 z-50 border-b border-slate-800">
-        <div class="max-w-full mx-auto px-6 lg:px-12 h-20 flex items-center justify-between">
-            <div class="text-xl font-black tracking-wider bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent">NOISYDAISIE CL</div>
+        <div class="max-w-full mx-auto px-4 sm:px-6 lg:px-12 h-20 flex items-center justify-between relative">
+            
+            <div class="text-lg sm:text-xl font-black tracking-wider bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent truncate max-w-[70%]">
+                NOISYDAISIE CL
+            </div>
+            
             <div class="hidden md:flex items-center space-x-8 font-medium">
                 <a href="index.html" class="hover:text-pink-500 transition">Home</a>
                 <a href="matches.html" class="hover:text-pink-500 transition">Matches</a>
                 <a href="teams.html" class="hover:text-pink-500 transition">Teams</a>
                 <a href="schedule.html" class="hover:text-pink-500 transition">Schedule</a>
-                <a href="register.html" class="bg-gradient-to-r from-pink-500 to-purple-500 text-white font-bold px-5 py-2.5 rounded-xl transition">Join League</a>
+                
+                <a href="register.html" class="bg-gradient-to-r from-pink-500 to-purple-500 hover:from-pink-600 hover:to-purple-600 text-white font-bold px-5 py-2.5 rounded-xl transition duration-300 shadow-[0_0_15px_rgba(236,72,153,0.15)] hover:shadow-[0_0_25px_rgba(236,72,153,0.45)] hover:scale-105 transform">
+                    Join League
+                </a>
             </div>
+
+            <button id="burger-btn" class="md:hidden block focus:outline-none cursor-pointer relative z-[60] p-2 min-w-[44px] min-h-[44px] flex items-center justify-center">
+                <svg class="w-7 h-7 text-white hover:text-pink-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+
+        <div id="mobile-menu" class="hidden absolute top-20 left-0 w-full bg-slate-900 p-6 flex flex-col space-y-4 shadow-2xl md:hidden border-t border-slate-800 z-50">
+            <a href="index.html" class="hover:text-pink-500 transition py-2 border-b border-slate-800/50">Home</a>
+            <a href="matches.html" class="hover:text-pink-500 transition py-2 border-b border-slate-800/50">Matches</a>
+            <a href="teams.html" class="hover:text-pink-500 transition py-2 border-b border-slate-800/50">Teams</a>
+            <a href="schedule.html" class="hover:text-pink-500 transition py-2 border-b border-slate-800/50">Schedule</a>
+            <a href="register.html" class="bg-gradient-to-r from-pink-500 to-purple-500 text-white font-bold py-3 rounded-xl text-center shadow-[0_0_15px_rgba(236,72,153,0.2)] block mt-4">
+                Join League
+            </a>
         </div>
     </nav>
 
     <main class="max-w-7xl mx-auto px-4 py-16">
         <div class="text-center mb-16">
             <h1 class="text-4xl md:text-6xl font-black uppercase tracking-tight bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 bg-clip-text text-transparent">PARTICIPATING TEAMS</h1>
-            <p class="text-slate-400 mt-3 text-sm md:text-base">Klik kartu tim untuk melihat detail squad nomor punggung pemain!</p>
+            <p class="text-slate-400 mt-3 text-sm md:text-base">Click on a team card to view squad details and jersey numbers!</p>
         </div>
         <div id="teams-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 px-4 max-w-7xl mx-auto"></div>
     </main>
 
-    <!-- POPUP MODAL -->
     <div id="player-modal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-md z-[100] hidden flex items-center justify-center p-4">
-        <div class="bg-slate-900 border border-slate-800 w-full max-w-lg rounded-2xl p-6 p-8 shadow-2xl relative">
+        <div class="bg-slate-900 border border-slate-800 w-full max-w-lg rounded-2xl p-6 md:p-8 shadow-2xl relative">
             <button id="close-modal" class="absolute top-4 right-4 text-slate-400 hover:text-white font-bold text-xl cursor-pointer">&times;</button>
             <div class="flex items-center space-x-4 mb-6 border-b border-slate-800 pb-4">
                 <div id="modal-team-logo" class="w-14 h-14 rounded-full overflow-hidden bg-slate-950 flex items-center justify-center text-pink-500 font-bold uppercase border border-slate-800"></div>
@@ -41,7 +62,7 @@
                     <p id="modal-team-captain" class="text-sm text-slate-400"></p>
                 </div>
             </div>
-            <h4 class="text-xs font-bold text-pink-400 tracking-wider uppercase mb-3">Daftar Skuad Pemain</h4>
+            <h4 class="text-xs font-bold text-pink-400 tracking-wider uppercase mb-3">Player Squad List</h4>
             <div id="modal-players-list" class="space-y-2 max-h-60 overflow-y-auto pr-2"></div>
         </div>
     </div>
@@ -68,14 +89,13 @@
                 const words = team.name.split(' ');
                 const finalInitials = ((words[0] ? words[0][0] : '') + (words[1] ? words[1][0] : '')).toUpperCase() || 'FC';
 
-                // Tambahkan background foto tim di halaman list teams juga
                 let bgPhotoHTML = '';
                 if (team.teamPhoto) {
                     bgPhotoHTML = `<img src="${team.teamPhoto}" class="absolute inset-0 w-full h-full object-cover opacity-10 group-hover:opacity-20 transition-opacity duration-300 mix-blend-luminosity">`;
                 }
 
                 const totalPlayers = team.players ? team.players.length : 0;
-                const subText = team.isDummy ? "La Liga · Spanyol" : `Total: ${totalPlayers} Pemain`;
+                const subText = team.isDummy ? "La Liga · Spain" : `Total: ${totalPlayers} Players`;
 
                 teamCard.innerHTML = `
                     ${bgPhotoHTML}
@@ -111,6 +131,25 @@
             });
 
             closeModal.addEventListener('click', () => modal.classList.add('hidden'));
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const burgerBtn = document.getElementById('burger-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            if (burgerBtn && mobileMenu) {
+                burgerBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    mobileMenu.classList.toggle('hidden');
+                });
+                document.addEventListener('click', function(e) {
+                    if (!mobileMenu.classList.contains('hidden') && e.target !== burgerBtn && !burgerBtn.contains(e.target)) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                });
+            }
         });
     </script>
 </body>

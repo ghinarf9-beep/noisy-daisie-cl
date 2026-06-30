@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="id" style="scroll-behavior: smooth;">
+<html lang="en" style="scroll-behavior: smooth;">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,9 +16,10 @@
 <body class="bg-slate-950 text-white font-sans overflow-x-hidden selection:bg-pink-500">
 
     <!-- NAVBAR ASLI -->
-    <nav class="bg-slate-900/80 backdrop-blur-md sticky top-0 z-50 border-b border-slate-800">
-        <div class="max-w-full mx-auto px-6 lg:px-12 h-20 flex items-center justify-between">
-            <div class="text-xl font-black tracking-wider bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent">
+   <nav class="bg-slate-900/80 backdrop-blur-md sticky top-0 z-50 border-b border-slate-800">
+        <div class="max-w-full mx-auto px-4 sm:px-6 lg:px-12 h-20 flex items-center justify-between relative">
+            
+            <div class="text-lg sm:text-xl font-black tracking-wider bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent truncate max-w-[70%]">
                 NOISYDAISIE CL
             </div>
             
@@ -27,8 +28,27 @@
                 <a href="matches.html" class="hover:text-pink-500 transition">Matches</a>
                 <a href="teams.html" class="hover:text-pink-500 transition">Teams</a>
                 <a href="schedule.html" class="hover:text-pink-500 transition">Schedule</a>
-                <a href="register.html" class="bg-gradient-to-r from-pink-500 to-purple-500 hover:from-pink-600 hover:to-purple-600 text-white font-bold px-5 py-2.5 rounded-xl transition duration-300 shadow-[0_0_15px_rgba(236,72,153,0.15)] hover:shadow-[0_0_25px_rgba(236,72,153,0.45)] hover:scale-105 transform">Join League</a>
+                
+                <a href="register.html" class="bg-gradient-to-r from-pink-500 to-purple-500 hover:from-pink-600 hover:to-purple-600 text-white font-bold px-5 py-2.5 rounded-xl transition duration-300 shadow-[0_0_15px_rgba(236,72,153,0.15)] hover:shadow-[0_0_25px_rgba(236,72,153,0.45)] hover:scale-105 transform">
+                    Join League
+                </a>
             </div>
+
+            <button id="burger-btn" class="md:hidden block focus:outline-none cursor-pointer relative z-[60] p-2 min-w-[44px] min-h-[44px] flex items-center justify-center">
+                <svg class="w-7 h-7 text-white hover:text-pink-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+
+        <div id="mobile-menu" class="hidden absolute top-20 left-0 w-full bg-slate-900 p-6 flex flex-col space-y-4 shadow-2xl md:hidden border-t border-slate-800 z-50">
+            <a href="index.html" class="hover:text-pink-500 transition py-2 border-b border-slate-800/50">Home</a>
+            <a href="matches.html" class="hover:text-pink-500 transition py-2 border-b border-slate-800/50">Matches</a>
+            <a href="teams.html" class="hover:text-pink-500 transition py-2 border-b border-slate-800/50">Teams</a>
+            <a href="schedule.html" class="hover:text-pink-500 transition py-2 border-b border-slate-800/50">Schedule</a>
+            <a href="register.html" class="bg-gradient-to-r from-pink-500 to-purple-500 text-white font-bold py-3 rounded-xl text-center shadow-[0_0_15px_rgba(236,72,153,0.2)] block mt-4">
+                Join League
+            </a>
         </div>
     </nav>
 
@@ -37,7 +57,7 @@
             <h1 class="text-4xl md:text-6xl font-black uppercase tracking-tight bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 bg-clip-text text-transparent">
                 STARTING LINE-UP
             </h1>
-            <p class="text-slate-400 mt-3 text-sm md:text-base">Geser ke samping untuk melihat kapten tim, klik kartu untuk detail lengkap squad.</p>
+            <p class="text-slate-400 mt-3 text-sm md:text-base">Scroll horizontally to view team captains, click on a card to see full squad details.</p>
         </div>
 
         <div id="players-scroller" class="scroller flex space-x-6 overflow-x-auto pb-10 px-4 snap-x card-container"></div>
@@ -54,7 +74,7 @@
                     <p id="modal-team-captain" class="text-sm text-slate-400"></p>
                 </div>
             </div>
-            <h4 class="text-xs font-bold text-pink-400 tracking-wider uppercase mb-3">Daftar Skuad Pemain</h4>
+            <h4 class="text-xs font-bold text-pink-400 tracking-wider uppercase mb-3">Player Squad List</h4>
             <div id="modal-players-list" class="space-y-2 max-h-60 overflow-y-auto pr-2"></div>
         </div>
     </div>
@@ -114,7 +134,7 @@
 
                 const words = team.name.split(' ');
                 const finalInitials = ((words[0] ? words[0][0] : '') + (words[1] ? words[1][0] : '')).toUpperCase() || 'FC';
-                const firstPlayerName = (team.players && team.players[0]) ? team.players[0].name : "Belum Ada";
+                const firstPlayerName = (team.players && team.players[0]) ? team.players[0].name : "None";
                 const firstPlayerNumber = (team.players && team.players[0]) ? team.players[0].number : "0";
 
                 // BACKGROUND FOTO CLUB: Render gambarnya kalau di-upload sama user
@@ -134,7 +154,7 @@
                         <div class="z-20 relative">
                             <span class="text-xs font-bold uppercase tracking-widest text-pink-500">${team.name}</span>
                             <h3 class="text-2xl font-black mt-1 text-white group-hover:text-pink-400 transition-colors">${firstPlayerName}</h3>
-                            <span class="inline-block text-[10px] uppercase font-bold border px-2 py-0.5 rounded mt-2 bg-pink-950/80 border-pink-500/30 text-pink-400 group-hover:bg-pink-500 group-hover:text-white transition duration-300">Lihat Squad</span>
+                            <span class="inline-block text-[10px] uppercase font-bold border px-2 py-0.5 rounded mt-2 bg-pink-950/80 border-pink-500/30 text-pink-400 group-hover:bg-pink-500 group-hover:text-white transition duration-300">View Squad</span>
                         </div>
                     </div>
                 `;
@@ -166,6 +186,29 @@
             });
 
             closeModal.addEventListener('click', () => modal.classList.add('hidden'));
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const burgerBtn = document.getElementById('burger-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            if (burgerBtn && mobileMenu) {
+                burgerBtn.addEventListener('click', function(e) {
+                    e.stopPropagation(); 
+                    mobileMenu.classList.toggle('hidden');
+                    console.log('Burger menu clicked!');
+                });
+
+                document.addEventListener('click', function(e) {
+                    if (!mobileMenu.classList.contains('hidden') && e.target !== burgerBtn && !burgerBtn.contains(e.target)) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                });
+            } else {
+                console.error('Burger button or mobile-menu element not found in HTML!');
+            }
         });
     </script>
 </body>
